@@ -8,7 +8,7 @@ content = list(filter(None,[x.strip() for x in content]))
 if len(sys.argv)>1:
     width = int(sys.argv[1])
 else:
-    width = 10
+    width = 20
 
 digraphStr = ""
 digraphStr += "digraph map "
@@ -21,6 +21,7 @@ for inputString in content:
         digraphStr += "A"+str(index)+" "
     else:
         skillCode = inputString[inputString.find(" ")+1:inputString.find(":")]
+        skillCode = skillCode.replace(".","")
         digraphStr += skillCode + " "
     digraphStr += "[label = "
     digraphStr += wrapText(inputString[inputString.find(" ")+1:],width)
