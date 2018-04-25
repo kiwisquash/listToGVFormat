@@ -19,24 +19,42 @@ def findBlankIndex(inputString,width):
     return findLast(inputString[:width]," ")
 
 def wrapFirstLine(inputString, width):
-    output = ""
+    outputString = ""
     firstBlankIndex = inputString.find(" ")
     blankIndex = findBlankIndex(inputString, width)
     if firstBlankIndex == -1:
-        output = inputString
+        outputString += inputString
+        outputIndex = firstBlankIndex
     else:
         if blankIndex == -1:
-            output+=inputString[:firstBlankIndex]
-            output+="\n"
-            output+=inputString[firstBlankIndex+1:]
+            print(width)
+            outputString+=inputString[:firstBlankIndex]
+            outputString+="\n"
+            # outputString+=inputString[firstBlankIndex+1:]
+            outputIndex = firstBlankIndex
         elif width < len(inputString):
-            output+=inputString[:blankIndex]
-            output+="\n"
-            output+=inputString[blankIndex+1:]
+            outputString+=inputString[:blankIndex]
+            outputString+="\n"
+            # outputString+=inputString[blankIndex+1:]
+            outputIndex = blankIndex
         else:
-            output=inputString
-    return output
+            outputString=inputString
+            outputIndex = len(inputString)
+    return outputString, outputIndex
 
 # for width in range(len(inputString)+1):
 #     print(width)
 #     print(wrapFirstLine(inputString,width))
+
+def wrapText(inputString, width):
+    output = ""
+    blankIndex = inputString.find(" ")
+    while blankIndex > -1:
+        temp = wrapFirstLine(inputString,width)
+        output += temp[0]
+        blankIndex = temp[1]
+        inputString = inputString[blankIndex+1:]
+    print(repr(output))
+
+for index in range(len(inputString)+1):
+    wrapText(inputString,index )
