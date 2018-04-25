@@ -1,4 +1,5 @@
 import sys
+import re
 from autolinebreak import *
 
 with open('input.md') as f:
@@ -23,7 +24,7 @@ for inputString in content:
         prefix = inputString[:inputString.find(":")]
         if prefix.find(" ")!=-1:
             prefix = prefix[prefix.find(" ")+1:] 
-        prefix = prefix.replace(".","")
+        prefix = re.sub(r'\W+','',prefix) 
         digraphStr += prefix + " "
     digraphStr += "[label = "
     digraphStr += wrapText(inputString[inputString.find(" ")+1:],width)
