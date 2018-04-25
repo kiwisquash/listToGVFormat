@@ -1,4 +1,3 @@
-import sys
 # inputString = "Hello, World! My name is Ki."
 # inputString = "a aa aaa aaaa aaaaa aaaaaa"
 
@@ -53,18 +52,3 @@ def wrapText(inputString, width):
         blankIndex = temp[1]
         inputString = inputString[blankIndex+1:]
     return repr(output)
-
-with open('input.md') as f:
-    content = f.readlines()
-content = [x.strip() for x in content] 
-
-if len(sys.argv)>1:
-    width = int(sys.argv[1])
-else:
-    width = 10
-
-for inputString in content:
-    wrapText(inputString,width)
-# for index in range(len(inputString)+1):
-#     print(index)
-#     wrapText(inputString,index)
