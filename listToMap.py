@@ -10,6 +10,18 @@ if len(sys.argv)>1:
 else:
     width = 10
 
+digraphStr = ""
+digraphStr += "digraph map "
+digraphStr += "{"
+digraphStr += "\n"
+index = 1
 for inputString in content:
-    print(wrapText(inputString,width))
- 
+    digraphStr += "\t"
+    digraphStr += "A"+str(index)+" "
+    digraphStr += "[label = "
+    digraphStr += wrapText(inputString,width)
+    digraphStr += "];\n"
+    index+=1
+digraphStr += "}"
+
+print(digraphStr)
