@@ -2,11 +2,11 @@
 
 Given a list of strings in input.md, listToMap.py will print the header for a directed graph using the graphviz dot language. 
 
-- Each **non-empty** line is treaed as a node for the graph.
+- Each **non-empty** line is treated as a node for the graph.
 - If a line has a colon, then the node name will be assigned based on the text that comes before the first colon in the line. 
 - If a line does not have a colon, then the node will be given the name of the form "A" followed by the line number.
 - Each line is treated as a label for the node in the graph.
-- Linebreaks are automatically inserted for the labels because graphviz does not insert line breaks.
+- Line breaks are automatically inserted for the labels because graphviz does not insert line breaks.
     - By default, labels will have no more than 20 characters per line.
     - You can adjust the max number of characters.
 
