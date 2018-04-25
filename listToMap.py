@@ -20,9 +20,11 @@ for inputString in content:
     if inputString.find(":")==-1:
         digraphStr += "A"+str(index)+" "
     else:
-        skillCode = inputString[inputString.find(" ")+1:inputString.find(":")]
-        skillCode = skillCode.replace(".","")
-        digraphStr += skillCode + " "
+        prefix = inputString[:inputString.find(":")]
+        if prefix.find(" ")!=-1:
+            prefix = prefix[prefix.find(" ")+1:] 
+        prefix = prefix.replace(".","")
+        digraphStr += prefix + " "
     digraphStr += "[label = "
     digraphStr += wrapText(inputString[inputString.find(" ")+1:],width)
     digraphStr += "];\n"
