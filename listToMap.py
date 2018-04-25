@@ -17,7 +17,11 @@ digraphStr += "\n"
 index = 1
 for inputString in content:
     digraphStr += "\t"
-    digraphStr += "A"+str(index)+" "
+    if inputString.find(":")!=-1:
+        digraphStr += "A"+str(index)+" "
+    else:
+        skillCode = inputString[inputString.find(" ")+1:inputString.find(":")]
+        digraphStr += skillCode 
     digraphStr += "[label = "
     digraphStr += wrapText(inputString,width)
     digraphStr += "];\n"
