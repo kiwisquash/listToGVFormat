@@ -1,5 +1,6 @@
-inputString = "Hello, World! My name is Ki."
-inputString = "a aa aaa aaaa aaaaa aaaaaa"
+import sys
+# inputString = "Hello, World! My name is Ki."
+# inputString = "a aa aaa aaaa aaaaa aaaaaa"
 
 # Find the blank that appears just before the width.
 
@@ -53,6 +54,16 @@ def wrapText(inputString, width):
         inputString = inputString[blankIndex+1:]
     print(repr(output))
 
-for index in range(len(inputString)+1):
-    print(index)
-    wrapText(inputString,index )
+f = open('input.md','r')
+inputString = f.read()
+f.close()
+
+if len(sys.argv)>1:
+    width = int(sys.argv[1])
+else:
+    width = 10
+
+wrapText(inputString,width)
+# for index in range(len(inputString)+1):
+#     print(index)
+#     wrapText(inputString,index)
