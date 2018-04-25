@@ -26,12 +26,12 @@ def wrapFirstLine(inputString, width):
     else:
         if blankIndex == -1:
             outputString+=inputString[:firstBlankIndex]
-            outputString+="\n"
+            outputString+="\\n"
             # outputString+=inputString[firstBlankIndex+1:]
             outputIndex = firstBlankIndex
         elif width < len(inputString):
             outputString+=inputString[:blankIndex]
-            outputString+="\n"
+            outputString+="\\n"
             # outputString+=inputString[blankIndex+1:]
             outputIndex = blankIndex
         else:
@@ -51,4 +51,4 @@ def wrapText(inputString, width):
         output += temp[0]
         blankIndex = temp[1]
         inputString = inputString[blankIndex+1:]
-    return repr(output)
+    return "\""+output+"\""
