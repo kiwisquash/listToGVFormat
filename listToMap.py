@@ -3,7 +3,7 @@ from autolinebreak import *
 
 with open('input.md') as f:
     content = f.readlines()
-content = [x.strip() for x in content] 
+content = list(filter(None,[x.strip() for x in content])) 
 
 if len(sys.argv)>1:
     width = int(sys.argv[1])
@@ -17,13 +17,13 @@ digraphStr += "\n"
 index = 1
 for inputString in content:
     digraphStr += "\t"
-    if inputString.find(":")!=-1:
+    if inputString.find(":")==-1:
         digraphStr += "A"+str(index)+" "
     else:
         skillCode = inputString[inputString.find(" ")+1:inputString.find(":")]
-        digraphStr += skillCode 
+        digraphStr += skillCode + " "
     digraphStr += "[label = "
-    digraphStr += wrapText(inputString,width)
+    digraphStr += wrapText(inputString[inputString.find(" ")+1:],width)
     digraphStr += "];\n"
     index+=1
 digraphStr += "}"
