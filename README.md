@@ -12,9 +12,13 @@ Given a list of strings in input.md, listToMap.py will print the header for a di
 
 # Usage
 
+> `python listToMap.py`
+
+Print the graphviz header with label width capped at 20 characters (default).
+
 > `python listToMap.py 15`
 
-Print the header with labels capped at 15 characters.
+Print the header with label width capped at 15 characters.
 
 > `python listToMap.py 12 > output.gv`
 
@@ -22,19 +26,19 @@ Overwrite the contents of output.gv.
 
 ## Sample input
 
->     Level A.1: The beginning of the end of the beginning
->     Level B.2: The middle of the end of the middle
->     Level C.3: I am the lord of the dance.
->
->     Stage D.a.4: Blah blah blah blah
+     Level A.1: The beginning of the end of the beginning
+     Level B.2: The middle of the end of the middle
+     Level C.3: I am the lord of the dance.
+
+     Stage D.a.4: Blah blah blah blah
 
 ## Sample output
 
 The output of `python listToMaps.py` with the input from above is 
 
-> digraph map {
-> 	A1 [label = "A.1: The beginning\nof the end of the\nbeginning"];
-> 	B2 [label = "B.2: The middle of\nthe end of the\nmiddle"];
-> 	C3 [label = "C.3: I am the lord\nof the dance."];
-> 	Da4 [label = "D.a.4: Blah blah\nblah blah"];
-> }
+    digraph map {
+        A1 [label = "A.1: The beginning\nof the end of the\nbeginning"];
+        B2 [label = "B.2: The middle of\nthe end of the\nmiddle"];
+        C3 [label = "C.3: I am the lord\nof the dance."];
+        Da4 [label = "D.a.4: Blah blah\nblah blah"];
+    }
