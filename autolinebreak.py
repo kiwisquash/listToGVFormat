@@ -1,4 +1,5 @@
 inputString = "Hello, World! My name is Ki."
+inputString = "a aa aaa aaaa aaaaa aaaaaa"
 
 # Find the blank that appears just before the width.
 
@@ -15,19 +16,15 @@ def findLast(inputString,char):
 # for testWord in testWords:
 #     print(findLast(testWord," "))
 
-def findBlankIndex(inputString,width):
-    return findLast(inputString[:width]," ")
-
 def wrapFirstLine(inputString, width):
     outputString = ""
     firstBlankIndex = inputString.find(" ")
-    blankIndex = findBlankIndex(inputString, width)
+    blankIndex = findLast(inputString[:width]," ") 
     if firstBlankIndex == -1:
         outputString += inputString
         outputIndex = firstBlankIndex
     else:
         if blankIndex == -1:
-            print(width)
             outputString+=inputString[:firstBlankIndex]
             outputString+="\n"
             # outputString+=inputString[firstBlankIndex+1:]
@@ -57,4 +54,5 @@ def wrapText(inputString, width):
     print(repr(output))
 
 for index in range(len(inputString)+1):
+    print(index)
     wrapText(inputString,index )
