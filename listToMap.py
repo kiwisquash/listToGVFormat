@@ -14,8 +14,14 @@ else:
 digraphStr = ""
 digraphStr += "digraph map "
 digraphStr += "{"
-digraphStr += "\n"
+digraphStr += 2*"\n"
 index = 1
+digraphStr += "# node [shape = oval, style = filled, fillcolor = white] \n"
+digraphStr += "# edge [color = black,style = solid]\n"
+digraphStr += "# attributes can be applied to subgroups of nodes and edges\n"
+digraphStr += "# rankdir = 'LR' # Changes direction of graph\n"
+digraphStr += "# {rank = same; /*list of nodes*/} # rank can also be max, min, source, sink\n"
+digraphStr += "\n"
 for inputString in content:
     digraphStr += "\t"
     if inputString.find(":")==-1:
