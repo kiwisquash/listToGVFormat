@@ -34,11 +34,17 @@ Overwrite the contents of output.gv.
 
 ## Sample output
 
-The output of `python listToMaps.py` with the input from above is 
-
     digraph map {
-        A1 [label = "A.1: The beginning\nof the end of the\nbeginning"];
-        B2 [label = "B.2: The middle of\nthe end of the\nmiddle"];
-        C3 [label = "C.3: I am the lord\nof the dance."];
-        Da4 [label = "D.a.4: Blah blah\nblah blah"];
+
+     # node [shape = oval, style = filled, fillcolor = white] 
+     # edge [color = black,style = solid]
+     # attributes can be applied to subgroups of nodes and edges
+     # rankdir = 'LR' # Changes direction of graph
+     # {rank = same; /\*list of nodes\*/} # rank can also be max, min, source, sink
+    
+    	A1 [label = "A.1: The beginning\nof the end of the\nbeginning"];
+     	B2 [label = "B.2: The middle of\nthe end of the\nmiddle"];
+     	C3 [label = "C.3: I am the lord\nof the dance."];
+     	Da4 [label = "D.a.4: Blah blah\nblah blah"];
+    
     }
