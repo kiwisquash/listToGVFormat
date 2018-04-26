@@ -23,7 +23,6 @@ digraphStr += "# rankdir = 'LR' # Changes direction of graph\n"
 digraphStr += "# {rank = same; /*list of nodes*/} # rank can also be max, min, source, sink\n"
 digraphStr += "\n"
 for inputString in content:
-    digraphStr += "\t"
     if inputString.find(":")==-1:
         digraphStr += "A"+str(index)+" "
     else:
